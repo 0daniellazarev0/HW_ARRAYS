@@ -4,13 +4,20 @@ import java.util.Arrays;
 
 public class SalesFiguresService {
     public long getAnnualSales(long[] monthlyFigures) {
-        long annualSales = Arrays.stream(monthlyFigures).sum();
+        long annualSales = 0;
+        for (long monthlyFigure : monthlyFigures) {
+           annualSales = annualSales + monthlyFigure;
+        }
 
         return annualSales;
     }
 
     public long averageMonthlyFigures(long[] monthlyFigures) {
-        long averageMonthlySales = (Arrays.stream(monthlyFigures).sum()) / (monthlyFigures.length);
+        long annualSales = 0;
+        for (long monthlyFigure : monthlyFigures) {
+            annualSales = annualSales + monthlyFigure;
+        }
+        long averageMonthlySales = annualSales/(monthlyFigures.length);
 
         return averageMonthlySales;
     }
@@ -38,7 +45,11 @@ public class SalesFiguresService {
     }
 
     public int monthsBelowAverage(long[] monthlyFigures) {
-        long averageMonthlySales = (Arrays.stream(monthlyFigures).sum()) / (monthlyFigures.length);
+        long annualSales = 0;
+        for (long monthlyFigure : monthlyFigures) {
+            annualSales = annualSales + monthlyFigure;
+        }
+        long averageMonthlySales = annualSales/(monthlyFigures.length);
         int numberOfMonthsBelowAverage = 0;
         for (long monthlyFigure : monthlyFigures) {
             if (monthlyFigure < averageMonthlySales) {
@@ -49,7 +60,11 @@ public class SalesFiguresService {
     }
 
     public int monthsAboveAverage(long[] monthlyFigures) {
-        long averageMonthlySales = (Arrays.stream(monthlyFigures).sum()) / (monthlyFigures.length);
+        long annualSales = 0;
+        for (long monthlyFigure : monthlyFigures) {
+            annualSales = annualSales + monthlyFigure;
+        }
+        long averageMonthlySales = annualSales/(monthlyFigures.length);
         int numberOfMonthsAboveAverage = 0;
         for (long monthlyFigure : monthlyFigures) {
             if (monthlyFigure > averageMonthlySales) {
